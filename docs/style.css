@@ -1,0 +1,206 @@
+/* 配色はアプリ本体（app.py の P）に合わせている */
+:root {
+  --bg: #f4f5f7;
+  --surface: #ffffff;
+  --border: #d6dae0;
+  --text: #1f2328;
+  --muted: #5c6672;
+  --accent: #2d6aa8;
+  --accent-dark: #23578c;
+  --notice-bg: #fff6e0;
+  --notice-border: #e8cf8f;
+  --notice-text: #5a4413;
+  --wrap: 1080px;
+  --gutter: 16px;
+  color-scheme: light;
+}
+
+* { box-sizing: border-box; }
+
+html { -webkit-text-size-adjust: 100%; }
+
+body {
+  margin: 0;
+  background: var(--surface);
+  color: var(--text);
+  font-family: "Hiragino Sans", "Hiragino Kaku Gothic ProN", "Yu Gothic UI", "Yu Gothic", Meiryo, system-ui, sans-serif;
+  font-size: 16px;
+  line-height: 1.8;
+}
+
+img { max-width: 100%; height: auto; display: block; }
+
+a { color: var(--accent); }
+
+.wrap {
+  max-width: var(--wrap);
+  margin: 0 auto;
+  padding: 0 var(--gutter);
+}
+
+h1, h2, h3 { line-height: 1.4; margin: 0; }
+
+h2 { font-size: 1.5rem; margin-bottom: 24px; }
+
+section { padding: 56px 0; }
+
+code {
+  font-family: Consolas, "Cascadia Mono", monospace;
+  font-size: 0.92em;
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  padding: 0 4px;
+}
+
+/* 公開前の表示 */
+.prerelease {
+  background: var(--notice-bg);
+  border-bottom: 1px solid var(--notice-border);
+  color: var(--notice-text);
+  font-size: 0.9rem;
+  text-align: center;
+  padding: 8px var(--gutter);
+}
+
+/* ヘッダー */
+.site-header { border-bottom: 1px solid var(--border); }
+.site-header .wrap {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  min-height: 56px;
+}
+.brand { font-weight: 700; }
+.version, .platform { color: var(--muted); font-weight: 400; font-size: 0.9rem; }
+
+/* 1. 用途 */
+.hero { padding: 56px 0 32px; }
+.hero h1 { font-size: 2.1rem; letter-spacing: 0.01em; }
+.lead { max-width: 46em; margin: 20px 0 0; font-size: 1.07rem; }
+.hero-actions { margin-top: 28px; }
+.meta { margin: 12px 0 0; color: var(--muted); font-size: 0.92rem; }
+.pending-note {
+  display: inline-block;
+  margin: 0;
+  padding: 8px 14px;
+  border: 1px dashed var(--border);
+  border-radius: 6px;
+  color: var(--muted);
+}
+
+.button {
+  display: inline-block;
+  background: var(--accent);
+  color: #fff;
+  font-weight: 700;
+  text-decoration: none;
+  padding: 12px 24px;
+  border-radius: 6px;
+}
+.button:hover { background: var(--accent-dark); }
+.button:focus-visible { outline: 3px solid #9cc0e6; outline-offset: 2px; }
+[hidden] { display: none !important; }
+
+/* スクリーンショット */
+figure { margin: 0; }
+figure img {
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  box-shadow: 0 2px 12px rgba(31, 35, 40, 0.08);
+}
+figcaption { margin-top: 10px; color: var(--muted); font-size: 0.9rem; }
+.shot { padding: 0 0 56px; }
+
+/* 3. 使い方 */
+.steps { background: var(--bg); }
+.step-list { list-style: none; margin: 0; padding: 0; }
+.step { margin: 0 0 56px; }
+.step:last-child { margin-bottom: 0; }
+.step h3 {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 1.25rem;
+  margin-bottom: 8px;
+}
+.num {
+  flex: none;
+  display: inline-grid;
+  place-items: center;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: var(--accent);
+  color: #fff;
+  font-size: 1rem;
+}
+.step-text p { margin: 0 0 8px; max-width: 46em; }
+.step figure { margin-top: 16px; }
+.example { color: var(--muted); }
+
+/* 縦長の画面（詳細・確認）は、PC では説明の横に並べる */
+@media (min-width: 900px) {
+  .step:has(> figure.narrow) {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+    gap: 40px;
+    align-items: start;
+  }
+  .step figure.narrow { margin-top: 0; }
+  .step figure.narrow img { max-width: 640px; }
+}
+
+/* 4. 入手方法 */
+.download-box {
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 24px;
+  margin-bottom: 32px;
+}
+.download-box p { margin: 0; }
+.status { font-weight: 700; color: var(--notice-text); margin-bottom: 4px !important; }
+.file { margin-top: 10px !important; color: var(--muted); font-size: 0.9rem; }
+
+.specs { margin: 0; }
+.specs > div {
+  display: grid;
+  grid-template-columns: 10em minmax(0, 1fr);
+  gap: 16px;
+  padding: 14px 0;
+  border-top: 1px solid var(--border);
+}
+.specs > div:last-child { border-bottom: 1px solid var(--border); }
+.specs dt { font-weight: 700; }
+.specs dd { margin: 0; }
+
+/* 5. 注意 */
+.notes { background: var(--bg); }
+.notes ul { margin: 0; padding-left: 1.2em; max-width: 50em; }
+.notes li { margin-bottom: 10px; }
+
+.site-footer {
+  border-top: 1px solid var(--border);
+  color: var(--muted);
+  font-size: 0.9rem;
+  padding: 24px 0;
+}
+
+.pc-only { display: none; }
+@media (min-width: 720px) {
+  .pc-only { display: inline; }
+}
+
+/* スマートフォン */
+@media (max-width: 600px) {
+  section { padding: 40px 0; }
+  .hero { padding: 36px 0 24px; }
+  .hero h1 { font-size: 1.55rem; }
+  .lead { font-size: 1rem; }
+  h2 { font-size: 1.3rem; }
+  .step { margin-bottom: 44px; }
+  .shot { padding-bottom: 40px; }
+  .button { display: block; text-align: center; }
+  .specs > div { grid-template-columns: minmax(0, 1fr); gap: 2px; }
+  .download-box { padding: 18px; }
+}

@@ -1,0 +1,150 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>PC管理センター v0.5 — 容量を使っているファイルの正体を確かめて整理する</title>
+  <meta name="description" content="PC管理センターは、容量を使っているファイルの種類・関連するアプリ・判断理由を表示し、確かめてからごみ箱へ移せる Windows 用アプリです。">
+  <link rel="stylesheet" href="style.css">
+  <script src="config.js" defer></script>
+  <script src="main.js" defer></script>
+</head>
+<body>
+
+  <!-- 公開前の表示。config.js の downloadUrl を設定すると main.js が取り除く -->
+  <div class="prerelease" data-prerelease>
+    公開前の確認用ページです。ダウンロード URL はまだ設定されていません。
+  </div>
+
+  <header class="site-header">
+    <div class="wrap">
+      <span class="brand">PC管理センター <span class="version">v0.5</span></span>
+      <span class="platform">Windows 用</span>
+    </div>
+  </header>
+
+  <main>
+    <!-- 1. 用途 -->
+    <section class="hero">
+      <div class="wrap">
+        <h1>容量を使っているファイルの「正体」を<br class="pc-only">確かめてから整理する</h1>
+        <p class="lead">
+          大きなファイルを見つけても、名前だけでは何のデータか分からず消せない——。
+          PC管理センターは、ファイルの<strong>種類</strong>・<strong>関連するアプリやプロジェクト</strong>・<strong>そう判断した理由</strong>を表示し、
+          確かめたうえで不要なものを Windows のごみ箱へ移せるアプリです。
+        </p>
+        <div class="hero-actions">
+          <!-- ダウンロード URL が設定されたときだけ main.js が表示する -->
+          <a class="button" href="#" data-download-link hidden>Windows 版をダウンロード</a>
+          <p class="pending-note" data-pending>ダウンロードは公開準備中です。<a href="#download">入手方法</a></p>
+          <p class="meta">Windows 10 / 11（64 ビット）・Python 不要</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 2. 画面 -->
+    <section class="shot">
+      <div class="wrap">
+        <figure>
+          <a href="images/file-list.png"><img src="images/file-list.png" width="1200" height="760"
+            alt="PC管理センターのファイル一覧。ファイルが容量の大きい順に並び、分類（ディスクイメージ・動画・ゲーム関連など）と関連するアプリ・プロジェクトが表示されている"></a>
+          <figcaption>ファイル一覧。容量の大きい順に、分類と関連するアプリ・プロジェクトが並びます。（画面は公開用のテストデータです）</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <!-- 3. 使い方 -->
+    <section class="steps" id="how">
+      <div class="wrap">
+        <h2>使い方</h2>
+        <ol class="step-list">
+          <li class="step">
+            <div class="step-text">
+              <h3><span class="num">1</span>容量を見る</h3>
+              <p>調べたいフォルダを選んで「スキャン」。容量マップで、どのフォルダが容量を使っているかを面積で確認します。四角をクリックすると中へ進めます。</p>
+            </div>
+            <figure>
+              <a href="images/step1-map.png"><img src="images/step1-map.png" width="1200" height="760" loading="lazy"
+                alt="容量マップ。Downloads・Videos・Games・Projects などのフォルダが容量に応じた大きさの四角で表示されている"></a>
+            </figure>
+          </li>
+          <li class="step">
+            <div class="step-text">
+              <h3><span class="num">2</span>種類と場所で絞る</h3>
+              <p>ファイル一覧で「種類」（動画・インストーラー・キャッシュ・開発の依存パッケージなど）と「位置」（フォルダ）を組み合わせて絞り込みます。容量や更新日時で並べ替えもできます。</p>
+            </div>
+            <figure>
+              <a href="images/step2-filter.png"><img src="images/step2-filter.png" width="1200" height="760" loading="lazy"
+                alt="種類「開発: 依存パッケージ・生成物」と位置「Projects」で絞り込んだファイル一覧。同じ名前 index.js のファイルが開発プロジェクトの依存パッケージとして並んでいる"></a>
+            </figure>
+          </li>
+          <li class="step">
+            <div class="step-text">
+              <h3><span class="num">3</span>詳細で正体を確かめる</h3>
+              <p>詳細画面には「これは何か」（種類・確度・関連先）、「なぜそう判断したか」、「整理する際の注意」が順に表示されます。</p>
+              <p class="example">例：<code>resources.assets</code> という名前だけでは分かりませんが、保存場所と拡張子から「Steam のゲームのデータ」と判断した理由が示されます。</p>
+            </div>
+            <figure class="narrow">
+              <a href="images/step3-detail.png"><img src="images/step3-detail.png" width="720" height="760" loading="lazy"
+                alt="詳細画面。resources.assets について、種類「ゲーム関連」、関連「ゲーム: Sample Quest（Steam）」、判断理由と整理する際の注意が表示されている"></a>
+            </figure>
+          </li>
+          <li class="step">
+            <div class="step-text">
+              <h3><span class="num">4</span>確認してごみ箱へ移す</h3>
+              <p>確認画面で名前・場所・容量・種類を見直し、「移動する」を押したときだけ Windows のごみ箱へ移します。完全削除はせず、ごみ箱から元に戻せます。</p>
+              <p>Windows やアプリの動作に関わる可能性があるものは、確認のチェックを入れるまで移動できません。Windows フォルダや Program Files などは対象外です。</p>
+            </div>
+            <figure class="narrow">
+              <a href="images/step4-confirm.png"><img src="images/step4-confirm.png" width="655" height="427" loading="lazy"
+                alt="ごみ箱へ移動の確認画面。ファイル名・フルパス・容量・更新日時・種類と注意が表示され、確認のチェックを入れるまで「移動する」ボタンは押せない"></a>
+            </figure>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- 4. 入手方法 -->
+    <section class="download" id="download">
+      <div class="wrap">
+        <h2>入手方法</h2>
+
+        <div class="download-box">
+          <div data-pending>
+            <p class="status">公開準備中</p>
+            <p>インストーラーのダウンロード先は準備中です。公開後、このページからダウンロードできるようになります。</p>
+          </div>
+          <div data-ready hidden>
+            <a class="button" href="#" data-download-link>インストーラーをダウンロード</a>
+            <p class="file" data-file-info></p>
+          </div>
+        </div>
+
+        <dl class="specs">
+          <div><dt>対応環境</dt><dd>Windows 10 / 11（64 ビット）</dd></div>
+          <div><dt>必要なもの</dt><dd>インストーラーだけで使えます。Python などを別途入れる必要はありません。</dd></div>
+          <div><dt>インストール</dt><dd>ダウンロードしたインストーラーを実行します。管理者権限は不要で、使っているユーザーにだけインストールされます。起動はスタートメニューの「PC管理センター」から。</dd></div>
+          <div><dt>アンインストール</dt><dd>Windows の「設定 &gt; アプリ &gt; インストールされているアプリ」から削除できます。</dd></div>
+        </dl>
+      </div>
+    </section>
+
+    <!-- 5. 注意 -->
+    <section class="notes">
+      <div class="wrap">
+        <h2>ご利用の前に</h2>
+        <ul>
+          <li><strong>分類には推定が含まれます。</strong>拡張子・保存場所・同じフォルダにあるファイルなどの手がかりから判断し、確度（高・推定・不明）を添えて表示します。特定できないものは「種類は不明」と表示します。</li>
+          <li><strong>移動する前に、対象をご自身で確認してください。</strong>アプリは判断の材料を示すだけで、移動して問題ないかどうかは断定しません。</li>
+          <li>自動で削除することはありません。操作は「ごみ箱へ移動」のみで、ごみ箱から元に戻せます。</li>
+        </ul>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap">PC管理センター v0.5</div>
+  </footer>
+
+</body>
+</html>
