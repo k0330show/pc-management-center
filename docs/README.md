@@ -26,7 +26,8 @@ python -m http.server 8000 --bind 127.0.0.1
 1. `config.js` の `downloadUrl` にインストーラーの URL（`https://` で始まるもの）を入れる。
    - 空のあいだは、上部に「公開前の確認用ページです」と出て、ダウンロードボタンは表示されません。
    - URL を入れると、その表示が消え、ページ上部と「入手方法」にボタンが出ます。
-2. 版を上げたときは `config.js` の `version`・`fileName`・`fileSize`、`index.html` の「v0.5」の表記を更新する。
+2. 版を上げたときは `config.js` の `version`・`fileName`・`fileSize`、`index.html` の版の表記（「v0.11」など）を更新する。
+   インストーラーは GitHub の Release に英字のファイル名（`PCManagementCenter_Setup_<版>.exe`）で添付し、その URL を `downloadUrl` に入れる。
 3. `tools/` はサーバーに置かなくてかまいません。
 
 ## スクリーンショットの撮り直し

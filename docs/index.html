@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>PC管理センター v0.5 — 容量を使っているファイルの正体を確かめて整理する</title>
+  <title>PC管理センター v0.11 — 容量を使っているファイルの正体を確かめて整理する</title>
   <meta name="description" content="PC管理センターは、容量を使っているファイルの種類・関連するアプリ・判断理由を表示し、確かめてからごみ箱へ移せる Windows 用アプリです。">
   <link rel="stylesheet" href="style.css">
   <script src="config.js" defer></script>
@@ -18,7 +18,7 @@
 
   <header class="site-header">
     <div class="wrap">
-      <span class="brand">PC管理センター <span class="version">v0.5</span></span>
+      <span class="brand">PC管理センター <span class="version">v0.11</span></span>
       <span class="platform">Windows 用</span>
     </div>
   </header>
@@ -48,8 +48,22 @@
         <figure>
           <a href="images/file-list.png"><img src="images/file-list.png" width="1200" height="760"
             alt="PC管理センターのファイル一覧。ファイルが容量の大きい順に並び、分類（ディスクイメージ・動画・ゲーム関連など）と関連するアプリ・プロジェクトが表示されている"></a>
-          <figcaption>ファイル一覧。容量の大きい順に、分類と関連するアプリ・プロジェクトが並びます。（画面は公開用のテストデータです）</figcaption>
+          <figcaption>ファイル一覧。容量の大きい順に、分類と関連するアプリ・プロジェクトが並びます。（画面は公開用のテストデータで、以前の版 v0.5 のものです。v0.11 では「移動」のチェック欄などが加わっています）</figcaption>
         </figure>
+      </div>
+    </section>
+
+    <!-- v0.11 の主な機能 -->
+    <section class="notes" id="features">
+      <div class="wrap">
+        <h2>v0.11 の主な機能</h2>
+        <ul>
+          <li><strong>重複ファイルを探す</strong>：中身が完全に一致するファイルの組を見つけます（中身全体で確かめます）。低リスク候補・すべて・個別に選び、2 段階の確認のあとでまとめてごみ箱へ移せます。各組で最低 1 件は残します。</li>
+          <li><strong>チェックしてまとめて移動</strong>：ファイル一覧・フォルダ一覧で「移動」にチェックを付け、全件・件数・容量を確認してからまとめてごみ箱へ移せます。</li>
+          <li><strong>ごみ箱から復元</strong>：このアプリで移したものを、元の場所へ戻せます。同じ名前のものがあるときは上書きしません。</li>
+          <li><strong>容量マップをたどる</strong>：四角をクリックして配下のフォルダへ進み、階層表示や「戻る」で戻れます。小さな項目は横の一覧から開けます。</li>
+          <li><strong>日本語 / English</strong>：初回起動時に選べます。あとから「設定 → 言語」で切り替えられます。</li>
+        </ul>
       </div>
     </section>
 
@@ -136,14 +150,15 @@
         <ul>
           <li><strong>分類には推定が含まれます。</strong>拡張子・保存場所・同じフォルダにあるファイルなどの手がかりから判断し、確度（高・推定・不明）を添えて表示します。特定できないものは「種類は不明」と表示します。</li>
           <li><strong>移動する前に、対象をご自身で確認してください。</strong>アプリは判断の材料を示すだけで、移動して問題ないかどうかは断定しません。</li>
-          <li>自動で削除することはありません。操作は「ごみ箱へ移動」のみで、ごみ箱から元に戻せます。</li>
+          <li>自動で削除することはありません。操作は「ごみ箱へ移動」のみで、ごみ箱から元に戻せます（このアプリの「ごみ箱から復元」タブからも戻せます）。</li>
+          <li>インストーラーにはコード署名がないため、Windows の SmartScreen の警告が出ることがあります（「詳細情報」→「実行」で進めます）。</li>
         </ul>
       </div>
     </section>
   </main>
 
   <footer class="site-footer">
-    <div class="wrap">PC管理センター v0.5</div>
+    <div class="wrap">PC管理センター v0.11</div>
   </footer>
 
 </body>
