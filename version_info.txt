@@ -1,0 +1,28 @@
+# PyInstaller 用のバージョン情報（exe のプロパティ > 詳細 に表示される）。
+# 版を上げるときは app.py の APP_VERSION・installer.iss の AppVersion と合わせて更新する。
+VSVersionInfo(
+  ffi=FixedFileInfo(
+    filevers=(0, 11, 0, 0),
+    prodvers=(0, 11, 0, 0),
+    mask=0x3f,
+    flags=0x0,
+    OS=0x40004,
+    fileType=0x1,
+    subtype=0x0,
+    date=(0, 0)
+  ),
+  kids=[
+    StringFileInfo([
+      StringTable(
+        '041104B0',
+        [StringStruct('CompanyName', ''),
+         StringStruct('FileDescription', 'PC管理センター'),
+         StringStruct('FileVersion', '0.11.0.0'),
+         StringStruct('InternalName', 'PC管理センター'),
+         StringStruct('OriginalFilename', 'PC管理センター.exe'),
+         StringStruct('ProductName', 'PC管理センター'),
+         StringStruct('ProductVersion', '0.11')])
+    ]),
+    VarFileInfo([VarStruct('Translation', [1041, 1200])])
+  ]
+)

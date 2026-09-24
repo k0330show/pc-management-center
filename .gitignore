@@ -1,0 +1,28 @@
+# ビルドの出力・インストーラー（インストーラーは Release の添付ファイルとして公開する）
+build/
+dist/
+installer/
+*.exe
+*.msi
+
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+
+# アプリが利用者の PC に作るファイル（リポジトリには入れない）
+trash_log.json
+settings.json
+*.tmp
+
+# テスト・計測で作るデータ
+pmc_*/
+sig_*.json
+*.log
+
+# エディタ・OS
+.vscode/
+.idea/
+Thumbs.db
+desktop.ini
